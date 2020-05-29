@@ -1,0 +1,33 @@
+#!/bin/bash
+echo 'Creating a quick boilerplate for React/TypeScript/Sass/WebPack/Babel7'
+
+yarn init -y
+
+mkdir -p src/components
+touch src/index.tsx
+
+echo 'Installing main dependencies..'
+
+yarn add react react-dom regenerator-runtime
+
+echo 'Installing DevDependencies...'
+
+yarn add -D @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript @types/react @types/react-dom babel-loader webpack webpack-cli typescript ts-loader css-loader node-sass sass-loader source-map-loader style-loader
+
+echo ''
+echo 'Creating the files, and pulling basic config from GitHub'
+echo ''
+
+
+downlGhub() {
+	wget -O $1 https://raw.githubusercontent.com/ronpichardo/cra-typescript-starter/master/$1
+}
+
+getFiles=('.babelrc' 'webpack.config.js' 'tsconfig.json' 'index.html')
+
+for ((i = 0 ; i < ${#getFiles[@]} ; i++)); do
+	downlGhub ${getFiles[$i]}
+done
+
+echo ""
+echo 'Happy go lucky...'
