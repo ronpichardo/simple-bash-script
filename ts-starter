@@ -20,7 +20,7 @@ echo ''
 
 
 downlGhub() {
-	wget -O $1 https://raw.githubusercontent.com/ronpichardo/cra-typescript-starter/master/$1
+	wget https://raw.githubusercontent.com/ronpichardo/cra-typescript-starter/master/$1
 }
 
 getFiles=('.babelrc' 'webpack.config.js' 'tsconfig.json' 'index.html')
